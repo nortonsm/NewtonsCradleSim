@@ -73,43 +73,33 @@ This simulation involves several core physics concepts:
 
 1. **Pendulum Motion (Gravity-Driven)**  
    Each ball is treated like a simple pendulum characterized by:  
-   - **Angle** ( $\theta$ ) from the vertical  
-   - **Angular velocity** ($\omega$ )  
-   - **Angular acceleration** (\$alpha$ )  
+   - **Angle** ($\theta$) from the vertical  
+   - **Angular velocity** ($\omega$)  
+   - **Angular acceleration** ($\alpha$)  
 
-   The motion is updated using the pendulum equation:
-   $\alpha = -\frac{g}{L}\sin(\theta)$,
-   where \(g\) is the gravitational acceleration and \(L\) is the length of the pendulum. This is integrated each frame to update the angle and position.
+   The motion is updated using the pendulum equation:  
+   $\alpha = -\frac{\text{GRAVITY}}{L}\sin(\theta)$  
+   where `GRAVITY` is the gravitational acceleration (set in the code) and $L$ is the length of the pendulum. These values are integrated each frame to update the angle and position.
 
 2. **Gravitational Acceleration**  
-   A constant gravity value (e.g., `980.0f`) is used in the pendulum equation to give a restoring force that pulls the ball towards its equilibrium (straight down).
+   A constant `GRAVITY` value is used in the pendulum equation to provide the restoring force that pulls the ball toward the vertical position (straight down).
 
 3. **Elastic Collisions (Conservation of Momentum and Energy)**  
-   When two adjacent balls collide:
-   - Their positions are adjusted to eliminate overlap.
-   - Their angular velocities are updated using the 1D elastic collision equations:
-     \[
-     v_1' = \left(\frac{m_1 - m_2}{m_1 + m_2}\right)\!v_1 
-            + \left(\frac{2 m_2}{m_1 + m_2}\right)\!v_2,
-     \]
-     \[
-     v_2' = \left(\frac{2 m_1}{m_1 + m_2}\right)\!v_1
-            + \left(\frac{m_2 - m_1}{m_1 + m_2}\right)\!v_2,
-     \]
-     ensuring momentum and energy are (approximately) conserved.
+   
+   When two adjacent balls collide, their angular velocities ($v_1$ and $v_2$) are updated using 1D elastic collision equations:
+   
+   $v_1' = \left(\frac{m_1 - m_2}{m_1 + m_2}\right)v_1 + \left(\frac{2m_2}{m_1 + m_2}\right)v_2 $
+   
+   $v_2' = \left(\frac{2m_1}{m_1 + m_2}\right)v_1 + \left(\frac{m_2 - m_1}{m_1 + m_2}\right)v_2 $
+   
+   Here, $m_1$ and $m_2$ are the masses of the two balls, and $v_1'$ and $v_2'$ are the new angular velocities after collision. This ensures momentum and energy are (approximately) conserved.
 
 4. **Coordinate Transformations (Angle to Position)**  
-   Each ball’s position is calculated from:
-   \[
-   x = x_{\text{pivot}} + L \sin(\theta), \quad
-   y = y_{\text{pivot}} + L \cos(\theta),
-   \]
-   where \((x_{\text{pivot}}, y_{\text{pivot}})\) is the pivot (top anchor) of the string.
+   Each ball’s position is calculated from its pivot (top anchor) using:  
+   $x = x_{\text{pivot}} + L \sin(\theta)$ and $y = y_{\text{pivot}} + L \cos(\theta)$
 
 5. **Drag-and-Drop Interaction**  
-   If the user clicks and drags a ball:
-   - That ball’s pendulum physics is temporarily halted.
-   - The position is set directly to the mouse coordinates, and the angle/velocity are updated upon release.
-   - This allows for dynamic changes to initial conditions (like pulling one ball far to the side).
+   Clicking and dragging a ball temporarily pauses its pendulum calculation. The ball’s position is set to the mouse coordinates, and on release, the simulation resumes using the new position and angle. This lets you explore different initial conditions (like pulling one ball further back) to see how momentum transfers through the cradle.
+
 
 **Overall**, you see a classic Newton’s Cradle behavior: when one ball is pulled back and released, it transfers its momentum through the line of balls, causing the opposite end ball to swing out.
