@@ -73,14 +73,12 @@ This simulation involves several core physics concepts:
 
 1. **Pendulum Motion (Gravity-Driven)**  
    Each ball is treated like a simple pendulum characterized by:  
-   - **Angle** ( $ \theta $) from the vertical  
-   - **Angular velocity** (\(\omega\))  
-   - **Angular acceleration** (\(\alpha\))  
+   - **Angle** ( $\theta$ ) from the vertical  
+   - **Angular velocity** ($\omega$ )  
+   - **Angular acceleration** (\$alpha$ )  
 
    The motion is updated using the pendulum equation:
-   \[
-   \alpha = -\frac{g}{L}\sin(\theta),
-   \]
+   $\alpha = -\frac{g}{L}\sin(\theta)$,
    where \(g\) is the gravitational acceleration and \(L\) is the length of the pendulum. This is integrated each frame to update the angle and position.
 
 2. **Gravitational Acceleration**  
