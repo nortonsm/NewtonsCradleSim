@@ -73,7 +73,7 @@ This simulation involves several core physics concepts:
 
 1. **Pendulum Motion (Gravity-Driven)**  
    Each ball is treated like a simple pendulum characterized by:  
-   - **Angle** (\(\theta\)) from the vertical  
+   - **Angle** ( $ \theta $) from the vertical  
    - **Angular velocity** (\(\omega\))  
    - **Angular acceleration** (\(\alpha\))  
 
