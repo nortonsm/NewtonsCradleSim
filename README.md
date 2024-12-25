@@ -67,7 +67,53 @@ By default a Mac usually **does not** have everything required to run this by de
      ```
    - A window should appear with the simulation.
 
-## Section 3: Physics of How the Program Implements the Simulation
+## Section 3: Running on Windows
+
+### Prerequisites
+
+1. **Install Visual Studio Build Tools:**
+   - Download the Visual Studio Build Tools installer from [Microsoft's website](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+   - Run the installer and select the following options (refer to the image below):
+     - **Desktop development with C++**
+     - **MSVC v143 - VS 2022 C++ x64/x86 build tools**
+     - **Windows 11 SDK**
+   - Click "Install" and wait for the installation to complete.
+
+   ![Visual Studio Build Tools Setup](images/VisualStudioBuildTools.png)
+
+2. **Open the Correct Command Prompt:**
+   - After installation, search for **x64 Native Tools Command Prompt for VS 2022** in the Windows Start Menu.
+   - Open it (see the image below).
+
+   ![x64 Native Tools Command Prompt](images/NativeToolsCommandPrompt.png)
+
+3. **Download and Extract SFML:**
+   - Download the precompiled SFML 2.6.2 library for Visual Studio from [SFML's website](https://www.sfml-dev.org/download/sfml/2.6.2/).
+   - Extract the ZIP file to a directory, e.g., `C:\path\to\SFML-2.6.2`.
+
+4. **Copy Required DLLs:**
+   - Locate the following DLLs in the extracted SFML directory under `bin`:
+     - `sfml-graphics-2.dll`
+     - `sfml-window-2.dll`
+     - `sfml-system-2.dll`
+   - Copy these DLLs into the same directory as the `newtons_cradle_with_mouse.cpp` file.
+
+---
+
+### Building and Running the Program
+
+1. **Navigate to the Project Directory:**
+   ```cmd
+   cd C:\path\to\project
+
+2. ** Compile the Program:**
+   cl newtons_cradle_with_mouse.cpp /I"C:\path\to\SFML-2.6.2\include" /std:c++17 /EHsc /link /LIBPATH:"C:\path\to\SFML-2.6.2\lib" /machine:x64 sfml-graphics.lib sfml-window.lib sfml-system.lib
+
+3. **Run the program:**
+   newtons_cradle_with_mouse.exe
+
+
+## Section 4: Physics of How the Program Implements the Simulation
 
 This simulation involves several core physics concepts:
 
