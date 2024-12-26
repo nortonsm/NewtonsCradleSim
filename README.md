@@ -106,7 +106,8 @@ By default a Mac usually **does not** have everything required to run this by de
    ```cmd
    cd C:\path\to\project
 
-2. ** Compile the Program:**
+2. **Compile the Program:**
+   ```cmd
    cl newtons_cradle_with_mouse.cpp /I"C:\path\to\SFML-2.6.2\include" /std:c++17 /EHsc /link /LIBPATH:"C:\path\to\SFML-2.6.2\lib" /machine:x64 sfml-graphics.lib sfml-window.lib sfml-system.lib
 
 3. **Run the program:**
