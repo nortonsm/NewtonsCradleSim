@@ -1,5 +1,7 @@
 # Newton’s Cradle Simulation
 
+![Newton's Cradle Simulation](images/NewtonsCradleSimulation.png)
+
 ## Section 1: Summary of What This Program Does
 
 This program is a C++ simulation of a classic Newton’s Cradle. It uses [SFML](https://www.sfml-dev.org/) (Simple and Fast Multimedia Library) to provide the graphical output and user interaction. Key features:
